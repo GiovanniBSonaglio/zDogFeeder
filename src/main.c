@@ -8,7 +8,7 @@
 #include "rtc.h"
 #include "usbd_configurator.h"
 
-LOG_MODULE_REGISTER(esp32_app_module, CONFIG_LOG_DEFAULT_LEVEL);
+LOG_MODULE_REGISTER(zDogFeederApp, CONFIG_LOG_DEFAULT_LEVEL);
 
 static const struct device *const uart_dev = DEVICE_DT_GET_ONE(zephyr_cdc_acm_uart);
 
