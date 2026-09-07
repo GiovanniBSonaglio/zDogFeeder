@@ -18,19 +18,6 @@ static const char *const weekday_names[7] = {
     "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
 };
 
-/* Fri Sep 04 2026 14:50:0 GMT+0000 */
-static struct rtc_time rtc_init_time = {
-	.tm_sec = 0,
-	.tm_min = 50,
-	.tm_hour = 14,
-	.tm_mday = 4,
-	.tm_mon = 8,
-	.tm_year = 2026 - TM_YEAR_OFFSET,
-	.tm_wday = 5,
-	.tm_isdst = 1,
-	.tm_nsec = 0,
-};
-
 int init_rtc() {
     int ret = 0;
 
