@@ -52,19 +52,6 @@ USBD_CONFIGURATION_DEFINE(sample_hs_config,
 			  CONFIG_USBD_MAX_POWER, &hs_cfg_desc);
 /* doc configuration instantiation end */
 
-static inline void print_baudrate(const struct device *dev)
-{
-	uint32_t baudrate;
-	int ret;
-
-	ret = uart_line_ctrl_get(dev, UART_LINE_CTRL_BAUD_RATE, &baudrate);
-	if (ret) {
-		LOG_WRN("Failed to get baudrate, ret code %d", ret);
-	} else {
-		LOG_INF("Baudrate %u", baudrate);
-	}
-}
-
 static void test_msg_cb(struct usbd_context *const ctx, const struct usbd_msg *msg)
 {
 	LOG_INF("USBD message: %s", usbd_msg_type_string(msg->type));
@@ -88,10 +75,6 @@ static void test_msg_cb(struct usbd_context *const ctx, const struct usbd_msg *m
 
 		uart_line_ctrl_get(msg->dev, UART_LINE_CTRL_DTR, &dtr);
 		LOG_DBG("Control line state: dtr=%u", dtr);
-	}
-
-	if (msg->type == USBD_MSG_CDC_ACM_LINE_CODING) {
-		print_baudrate(msg->dev);
 	}
 }
 

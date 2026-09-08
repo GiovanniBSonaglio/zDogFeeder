@@ -50,7 +50,6 @@ int main(void)
 
     // Checking wakeup cause
     log_wakeup_cause();
-
     
     // Testing setting an alarm for now + 5min
     struct rtc_time cur_time;
